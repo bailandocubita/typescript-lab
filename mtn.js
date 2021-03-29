@@ -1,4 +1,4 @@
-var mountainsIveSeen = [
+var mountains = [
     { name: "Kilimanjaro",
         height: 19341
     },
@@ -9,22 +9,21 @@ var mountainsIveSeen = [
         height: 20310
     },
 ];
-function findNameOfTallestMountain(mountains) {
+function findNameOfTallestMountain(mountainsList) {
     var tallest = null;
-    for (var _i = 0, mountains_1 = mountains; _i < mountains_1.length; _i++) {
-        var mountain = mountains_1[_i];
+    for (var _i = 0, mountainsList_1 = mountainsList; _i < mountainsList_1.length; _i++) {
+        var mountain = mountainsList_1[_i];
         if (!tallest) {
             tallest = mountain;
-            console.log("tallest on line 27 is " + tallest.name);
         }
         if (mountain.height > tallest.height) {
             tallest = mountain;
-            console.log("tallest on line 31 is " + tallest.name);
         }
     }
     return tallest === null || tallest === void 0 ? void 0 : tallest.name;
 }
-console.log(findNameOfTallestMountain(mountainsIveSeen));
+var tallestMountain = findNameOfTallestMountain(mountains);
+console.log(tallestMountain);
 var products = [
     {
         name: "soap",
@@ -49,7 +48,7 @@ function calcAverageProductPrice(items) {
 }
 var averagePrice = calcAverageProductPrice(products);
 console.log(averagePrice);
-var itemsInStock = [
+var inventory = [
     {
         product: {
             name: "motor",
@@ -71,14 +70,13 @@ var itemsInStock = [
         quantity: 20
     }
 ];
-function calcInventoryValue(inventory) {
+function calcInventoryValue(inventoryItems) {
     var total = 0;
-    for (var _i = 0, inventory_1 = inventory; _i < inventory_1.length; _i++) {
-        var pieces = inventory_1[_i];
+    for (var _i = 0, inventoryItems_1 = inventoryItems; _i < inventoryItems_1.length; _i++) {
+        var pieces = inventoryItems_1[_i];
         total += pieces.product.price * pieces.quantity;
-        console.log(total);
     }
     return total;
 }
-var inventoryValue = calcInventoryValue(itemsInStock);
+var inventoryValue = calcInventoryValue(inventory);
 console.log(inventoryValue);

@@ -3,7 +3,7 @@ interface Mountain {
     height: number;
 }
 
-const mountainsIveSeen: Mountain[] = [ 
+const mountains: Mountain[] = [ 
     {name: "Kilimanjaro",
     height: 19341,
     },
@@ -18,24 +18,25 @@ const mountainsIveSeen: Mountain[] = [
 
 ]
 
-function findNameOfTallestMountain(mountains: Mountain[]) {
+function findNameOfTallestMountain(mountainsList: Mountain[]) {
     let tallest = null;
-    for (let mountain of mountains) {
+    for (let mountain of mountainsList) {
 
         if (!tallest) {
             tallest = mountain;
-            console.log(`tallest on line 27 is ${tallest.name}`);
+
         }
         if (mountain.height > tallest.height) {
             tallest = mountain;
-            console.log(`tallest on line 31 is ${tallest.name}`)
+
         }
 
         
     }
     return tallest?.name;
 }
-console.log(findNameOfTallestMountain(mountainsIveSeen));
+let tallestMountain = findNameOfTallestMountain(mountains);
+console.log(tallestMountain);
 
 interface Product {
     name: string,
@@ -76,7 +77,7 @@ interface InventoryItem {
     quantity: number,
 }
 
-const itemsInStock: InventoryItem[] = [
+const inventory: InventoryItem[] = [
     {
         product: {
             name: "motor",
@@ -102,15 +103,15 @@ const itemsInStock: InventoryItem[] = [
 
 ]
 
-function calcInventoryValue(inventory: InventoryItem[]) {
+function calcInventoryValue(inventoryItems: InventoryItem[]) {
     let total = 0;
 
-    for (let pieces of inventory) {
+    for (let pieces of inventoryItems) {
         total += pieces.product.price * pieces.quantity;
     }
     
     return total;
 }
 
-let inventoryValue = calcInventoryValue(itemsInStock);
+let inventoryValue = calcInventoryValue(inventory);
 console.log(inventoryValue);
